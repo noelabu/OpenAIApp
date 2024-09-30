@@ -12,6 +12,7 @@ project-directory
 │   │   │   └── routes
 │   │   ├── core
 │   │   └── main.py
+|   ├── .env
 │   └── requirements.txt
 ├── frontend
 │   ├── public
@@ -19,8 +20,8 @@ project-directory
 │   │   ├── app
 │   │   ├── model
 │   │   └── styles
+|   ├── .env
 │   └── package.json
-├── .env
 └── README.md
 ```
 ### Pre-requisites
@@ -53,7 +54,7 @@ Before running the application, make sure you have the following installed:
     ```bash
     pip install-r requirements.txt
     ```
-5. Set up your environment variables. Create a `.env` file, copy the example in `.env.example` and edit the necessary values.
+5. Set up your environment variables. Create a `.env` file in the directory, copy the example in `.env.example` and edit the necessary values.
     ```bash
     OPENAI_API_KEY='your_secret_key'
     ```
@@ -74,7 +75,7 @@ Before running the application, make sure you have the following installed:
     ```bash
     npm install or yarn install
     ```
-3. Set up your environment variables. Create a `.env` file, copy the example in `.env.example`.
+3. Set up your environment variables. Create a `.env` file in the directory, copy the example in `.env.example`.
     ```bash
     NEXT_PUBLIC_API_URL=http://localhost:8000
     ```
