@@ -29,8 +29,9 @@ export default function App() {
       setCurrentChat('');
       setData('');
       try {
+        const APP_API_URL = process.env.NEXT_PUBLIC_API_URL
         const response = await fetch(
-          `${process.env.APP_API_URL}/stream?prompt=${prompt}`,
+          `${APP_API_URL}/stream?prompt=${prompt}`,
           {
             method: 'GET',
           }
