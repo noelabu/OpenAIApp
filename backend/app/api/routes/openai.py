@@ -1,27 +1,29 @@
 from fastapi import APIRouter
+from fastapi.responses import StreamingResponse
 from openai import OpenAI
 from decouple import config
 
 router = APIRouter()
 
-@router.post(
-    "/test",
-    status_code=201,
-)
-async def test_api_prompt(prompt:str):
-   
-   client = OpenAI(
+async def stream_api(prompt):
+    client = OpenAI(
         api_key=config('OPENAI_API_KEY')
     )
 
-    # Creating a message as required by the API
-   messages = [{"role": "user", "content": prompt}]
-  
-   # Calling the ChatCompletion API
-   response = client.chat.completions.create(
-       model="gpt-3.5-turbo",
-       messages=messages,
-       temperature=0,
-   )
+    messages = [{"role": "user", "content": prompt}]
 
-   return response
+    stream = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=messages,
+        stream=True,
+    )
+    for chunk in stream:
+        if chunk.choices[0].delta.content is not None:
+            yield chunk.choices[0].delta.content
+
+@router.get(
+    "/stream",
+    status_code=201
+)
+async def test_api_stream(prompt:str):
+    return StreamingResponse(stream_api(prompt))
