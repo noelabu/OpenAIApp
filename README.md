@@ -53,7 +53,7 @@ Before running the application, make sure you have the following installed:
     ```bash
     pip install-r requirements.txt
     ```
-5. Set up your environment variables. Create a `.env` file, vopy the example in `.env.example` and edit the necessary values.
+5. Set up your environment variables. Create a `.env` file, copy the example in `.env.example` and edit the necessary values.
     ```bash
     OPENAI_API_KEY='your_secret_key'
     ```
@@ -74,11 +74,15 @@ Before running the application, make sure you have the following installed:
     ```bash
     npm install or yarn install
     ```
-3. Start the React Application:
+3. Set up your environment variables. Create a `.env` file, copy the example in `.env.example`.
+    ```bash
+    NEXT_PUBLIC_API_URL=http://localhost:8000
+    ```
+4. Start the React Application:
     ```bash
     npm run dev or yarn dev
     ```
-4. Access the application at http://localhost:3000 in your web browser.
+5. Access the application at http://localhost:3000 in your web browser.
 
 ### Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests.
